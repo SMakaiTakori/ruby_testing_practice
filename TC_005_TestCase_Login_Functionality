@@ -1,0 +1,27 @@
+require 'test/unit'
+require 'selenium-webdriver'
+
+class TC_001_Validate_Login_Functionality < Test::Unit::TestCase
+
+  def setup
+    Selenium::WebDriver::Chrome.driver_path="C:/Users/MakaiT/Downloads/chromedriver.exe"
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome(:chrome_options => {detach:true})
+    @driver = Selenium::WebDriver.for :chrome, desired_capabilities: caps
+    @driver.manage.window.maximize
+    @driver.get("https://www.facebook.com")
+  end
+
+  def teardown
+    @driver.close
+  end
+
+    def testLoginFunctionality
+      actualURL=@driver.current_url
+      assert_equal( "https://www.facebook1.com/", actualURL, "[Error ] - Actual URL not matched with Expected")
+
+      @driver.find_element(:id,"email").send_keys("usernam1")
+      @driver.find_element(:name,"pass").send_keys("password1")
+      @driver.find_element(:xpath,"//input[@type='submit']").click
+    end
+
+end

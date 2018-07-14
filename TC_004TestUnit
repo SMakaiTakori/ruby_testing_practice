@@ -1,0 +1,28 @@
+require 'test/unit'
+
+class TC_001_Verify_Login_Functionality < Test::Unit::TestCase
+
+  def testCase1
+
+    puts "Person enter username"
+    puts "Person enter password"
+    puts "Click on signin button"
+    assert_not_equal("Hello","Hello"
+    ,"[Error ] - Actual String is not same as expected")
+
+  end
+
+  def setup
+    puts "Start browser and Enter URL"
+
+  end
+
+  def teardown
+    puts "Close Browser"
+  end
+
+  def testCase2
+    puts "This is Test Case2"
+  end
+
+end
